@@ -1,2 +1,2 @@
 # GillonMcBotlin
-An all-rounder js bot for the r/AF Discord Server.
+An all-rounder JS bot for the r/AFL Discord Server.
