@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ZedFish/GillonMcBotlin#readme",
   "dependencies": {
-    "discord.js": "^11.2.1"
+    "discord.js": "^11.2.1",
+    "yamljs": "^0.3.0"
   }
 }
