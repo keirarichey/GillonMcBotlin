@@ -12,7 +12,7 @@ CLIENT.on('ready', () => {
 	CLIENT.user.setGame("Prefix: " + CONFIG.prefix);
 });
 
-CLIENT.on("message", async message => {
+CLIENT.on('message', async message => {
 	const SERVER = CLIENT.guilds.find("name", "r/AFL");
 
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
