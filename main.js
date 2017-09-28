@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const CLIENT = new Discord.Client();
 const CONFIG = require("./config.json");
 const TEAMS = require("./data/teams.json");
-const
 
 CLIENT.on('ready', () => {
 	console.log(`--------------------------------------------------------`)
