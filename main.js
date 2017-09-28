@@ -2,7 +2,6 @@
 const Discord = require("discord.js");
 const CLIENT = new Discord.Client();
 const CONFIG = require("./config.json");
-<<<<<<< HEAD
 const TEAMS = require("./data/teams.json");
 const
 
