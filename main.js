@@ -3,6 +3,7 @@ const YAML = require('yamljs');
 const CLIENT = new Discord.Client();
 const CONFIG = require("./config.json");
 const TEAMS = YAML.load('./data/teams.yml')
+const TEAMNAMES = YAML.load('./data/teamnames.yml')
 const prefix = CONFIG["prefix"];	
 
 CLIENT.on('ready', () => {
@@ -21,7 +22,6 @@ CLIENT.on('message', async message => {
             const args = message.content.slice(CONFIG.prefix.length).trim().split(/ +/g); /* Define the arguments (args after command) */
             const command = args.shift().toLowerCase(); /* Define the command that is being called */
             args.join(' ').toLowerCase(); /* Make arguments lower-case, make into one string */
-
 
             if (command === "team") {
 
@@ -44,8 +44,8 @@ CLIENT.on('message', async message => {
                 /*
                  * Now we look up the role we need to add.
                  */
-
-                if (!Object.values(TEAMS).includes(args)) { /* If the request team is not a real team (not in teams array) */
+                
+                if (!Object.values(TEAMNAMES).includes(args)) { /* If the request team is not a real team (not in teams array) */
                 	message.channel.send(`${user}: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! ${args} is not an accepted input!`);
                 	return;
                 } else {
