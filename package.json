@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ZedFish/GillonMcBotlin/issues"
   },
-  "homepage": "https://github.com/ZedFish/GillonMcBotlin#readme"
+  "homepage": "https://github.com/ZedFish/GillonMcBotlin#readme",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "js-yaml": "^3.10.0"
+  }
 }
