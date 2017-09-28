@@ -2,13 +2,14 @@ const Discord = require("discord.js");
 const CLIENT = new Discord.Client();
 const CONFIG = require("./config.json");
 const TEAMS = require("./data/teams.json");
+const prefix = CONFIG["prefix"];
 
 CLIENT.on('ready', () => {
     console.log(`--------------------------------------------------------`)
     console.log(`Logged in and successfully connected as ${CLIENT.user.username}.`)
     console.log(`Invite link: https://discordapp.com/oauth2/authorize?CLIENT_id=${CLIENT.user.id}&scope=bot&permissions=268446784`)
     console.log(`--------------------------------------------------------`);
-    CLIENT.user.setGame("Prefix: " + CONFIG.prefix);
+    CLIENT.user.setGame("prefix: " + CONFIG.prefix);
 });
 
 CLIENT.on('message', async message => {
@@ -18,7 +19,7 @@ CLIENT.on('message', async message => {
 
             const args = message.content.slice(CONFIG.prefix.length).trim().split(/ +/g); /* Define the arguments (args after command) */
             const command = args.shift().toLowerCase(); /* Define the command that is being called */
-            args.toLowerCase(); /* Make arguments lower-case */
+            args.join(' ').toLowerCase(); /* Make arguments lower-case, make into one string */
 
 
             if (command === "team") {
@@ -32,8 +33,8 @@ CLIENT.on('message', async message => {
                  * Time to find all existing teams roles to remove, and add them to a list of roles to remove.
                  * We'll take the name, too, for admin purposes.
                  */
-                user_roles.values().forEach(function(role) {
-                    if TEAMS.keys().includes(role) {
+                Array.from(user_roles.values()).forEach(function(role) {
+                    if (Object.keys(TEAMS).includes(role)) {
                         drop_array.push(role);
                         drop_array_names.push(role.name);
                     }
@@ -43,15 +44,15 @@ CLIENT.on('message', async message => {
                  * Now we look up the role we need to add.
                  */
 
-                TEAMS.values().forEach(function(rolearray) {
-                    if rolearray.includes(args) { /* If the requested team is a real team */
-                        to_add = SERVER.roles.values().find(function(role) {
-
-                        });
-                    } else {
-                        channel.send("<@${user}>: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! `${args}` is not an accepted input!")
-                    }
-                })
+                if (!Object.values(TEAMS).includes(args)) { /* If the request team is not a real team (not in teams array) */
+                	message.channel.send(`${user}: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! ${args} is not an accepted input!`);
+                	return;
+                } else {
+                	message.channel.send('Changed!')
+                	/* change team etc. */
+                }
 
             }
-        }
+        });
+
+CLIENT.login(CONFIG["token"]);
