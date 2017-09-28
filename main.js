@@ -1,8 +1,9 @@
 const Discord = require("discord.js");
+const YAML = require('yamljs');
 const CLIENT = new Discord.Client();
 const CONFIG = require("./config.json");
-const TEAMS = require("./data/teams.json");
-const prefix = CONFIG["prefix"];
+const TEAMS = YAML.load('./data/teams.yml')
+const prefix = CONFIG["prefix"];	
 
 CLIENT.on('ready', () => {
     console.log(`--------------------------------------------------------`)
