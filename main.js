@@ -51,6 +51,14 @@ CLIENT.on('message', async message => {
                 	return;
                 } else {
                 	/* Change team, etc. */
+
+                    /* Remove roles using drop array, and log for admin purposes */
+                    user.removeRoles(drop_array)
+                    /* Insert logging here */
+
+                    TEAMS.forEach(function (key, array)) {
+                        
+                    }
                 }
 
             }
