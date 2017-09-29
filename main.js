@@ -46,11 +46,11 @@ CLIENT.on('message', async message => {
                  */
                 
                 if (!Object.values(TEAMNAMES).includes(args)) { /* If the request team is not a real team (not in teams array) */
-                	message.channel.send(`${user}: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! ${args} is not an accepted input!`);
+                	/* The user didn't input a real team, so we will inform them it failured */
+                    message.channel.send(`${user}: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! ${args} is not an accepted input!`);
                 	return;
                 } else {
-                	message.channel.send('Changed!')
-                	/* change team etc. */
+                	/* Change team, etc. */
                 }
 
             }
