@@ -19,9 +19,9 @@ CLIENT.on('message', async message => {
 
             if (!message.content.startsWith(prefix) || message.author.bot) return; /* If the message isn't one of ours, skip */
 
-            const args = message.content.slice(CONFIG.prefix.length).trim().split(/ +/g); /* Define the arguments (args after command) */
-            const command = args.shift().toLowerCase(); /* Define the command that is being called */
-            args.join(' ').toLowerCase(); /* Make arguments lower-case, make into one string */
+            var args = message.content.slice(CONFIG.prefix.length).trim().split(/ +/g); /* Define the arguments (args after command) */
+            var command = args.shift().toLowerCase(); /* Define the command that is being called */
+            args = args.join(" ").toLowerCase(); /* Make arguments lower-case, make into one string */
 
             if (command === "team") {
 
