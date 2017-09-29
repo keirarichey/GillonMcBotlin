@@ -54,6 +54,18 @@ CLIENT.on('message', async message => {
                 }
 
             }
+
+            if (command === "group") {
+
+            }
+
+            if (command === "ungroup") {
+
+            }
+
+            if (command === "noteam") {
+                
+            }
         });
 
 CLIENT.login(CONFIG["token"]);
