@@ -80,6 +80,8 @@ CLIENT.on('message', async message => {
             }
 
             if (command === "noteam") {
+                var user = message.member;
+                var user_roles = user.roles;
                 var drop_array = [];
                 var drop_array_names = [];
                 /*
@@ -108,6 +110,8 @@ CLIENT.on('message', async message => {
             }
 
             if (command === "group") {
+                var user = message.member;
+                var user_roles = user.roles;
                 var newgroup;
                 Array.from(Object.keys(GROUPS)).forEach(function (group_name) {
                     if (GROUPS[group_name].includes(args)) { /* If the array of nicknames includes our nickname */
@@ -130,6 +134,8 @@ CLIENT.on('message', async message => {
             }
 
             if (command === "ungroup") {
+                var user = message.member;
+                var user_roles = user.roles;
                 var newgroup;
                 Array.from(Object.keys(GROUPS)).forEach(function (group_name) {
                     if (GROUPS[group_name].includes(args)) { /* If the array of nicknames includes our nickname */
