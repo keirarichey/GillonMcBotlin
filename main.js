@@ -24,43 +24,63 @@ CLIENT.on('message', async message => {
             args = args.join(" ").toLowerCase(); /* Make arguments lower-case, make into one string */
 
             if (command === "team") {
-
                 var user = message.member;
-                var drop_array = [];
-                var drop_array_names = [];
                 var user_roles = user.roles;
-
-                /*
-                 * Time to find all existing teams roles to remove, and add them to a list of roles to remove.
-                 * We'll take the name, too, for admin purposes.
-                 */
-                Array.from(user_roles.values()).forEach(function(role) {
-                    if (Object.keys(TEAMS).includes(role)) {
-                        drop_array.push(role);
-                        drop_array_names.push(role.name);
-                    }
-                });
-
-                /*
-                 * Now we look up the role we need to add.
-                 */
                 
-                if (!Object.values(TEAMNAMES).includes(args)) { /* If the request team is not a real team (not in teams array) */
+                if (!Object.values(TEAMNAMES).includes(args)) {
+                    /* If the request team is not a real team (not in teams array) */
                 	/* The user didn't input a real team, so we will inform them it failured */
-                    message.channel.send(`${user}: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! ${args} is not an accepted input!`);
+                    message.channel.send(`${user}: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! \`${args}\` is not an accepted input!`);
                 	return;
                 } else {
+                    var drop_array = [];
+                    var drop_array_names = [];
+
+                    /*
+                     * Time to find all existing teams roles to remove, and add them to a list of roles to remove.
+                     * We'll take the name, too, for admin purposes.
+                     */
+                    Array.from(user_roles.values()).forEach(function(role) {
+                        if (Object.keys(TEAMS).includes(role)) {
+                            drop_array.push(role);
+                            drop_array_names.push(role.name);
+                        }
+                    });
                 	/* Change team, etc. */
 
                     /* Remove roles using drop array, and log for admin purposes */
-                    user.removeRoles(drop_array)
+                    user.removeRoles(drop_array);
                     /* Insert logging here */
 
-                    TEAMS.forEach(function (key, array)) {
-                        
-                    }
-                }
+                    /*
+                     * Now we look up the role we need to add.
+                     */
 
+                    /* Search the TEAMS array for our team nickname */
+                    var newteam;
+                    Array.from(Object.keys(TEAMS)).forEach(function (team_name) {
+                        if (TEAMS[team_name].includes(args)) { /* If the array of nicknames includes our nickname */
+                            newteam = team_name; /* Team is the proper team */
+                        } else {
+                            return;
+                        }
+                    });
+
+                    var to_add;
+                    Array.from(SERVER.roles.values()).forEach(function (role) {
+                        if (role.name === newteam) {
+                            to_add = role;
+                        } else {
+                            return;
+                        }
+                    }); /* Search server roles for proper team ID */
+
+                    user.addRole(to_add);
+                }
+            }
+
+            if (command === "noteam") {
+                
             }
 
             if (command === "group") {
@@ -69,10 +89,6 @@ CLIENT.on('message', async message => {
 
             if (command === "ungroup") {
 
-            }
-
-            if (command === "noteam") {
-                
             }
         });
 
