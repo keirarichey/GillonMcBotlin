@@ -21,7 +21,8 @@ CLIENT.on('message', async message => {
 
             var args = message.content.slice(CONFIG.prefix.length).trim().split(/ +/g); /* Define the arguments (args after command) */
             const command = args.shift().toLowerCase(); /* Define the command that is being called */
-            args = args.join(" ").toLowerCase(); /* Make arguments lower-case, make into one string */
+            args = args.join(" ");
+            args = args.toLowerCase(); /* Make arguments lower-case, make into one string */
 
             if (command === "team") {
                 var user = message.member;
@@ -41,7 +42,7 @@ CLIENT.on('message', async message => {
                      * We'll take the name, too, for admin purposes.
                      */
                     Array.from(user_roles.values()).forEach(function(role) {
-                        if (Object.keys(TEAMS).includes(role)) {
+                        if (Object.keys(TEAMS).includes(role.name)) {
                             drop_array.push(role);
                             drop_array_names.push(role.name);
                         }
@@ -89,7 +90,7 @@ CLIENT.on('message', async message => {
                  * We'll take the name, too, for admin purposes.
                  */
                 Array.from(user_roles.values()).forEach(function(role) {
-                    if (Object.keys(TEAMS).includes(role)) {
+                    if (Object.keys(TEAMS).includes(role.name)) {
                         drop_array.push(role);
                         drop_array_names.push(role.name);
                     }
