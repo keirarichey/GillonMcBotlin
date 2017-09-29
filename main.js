@@ -58,19 +58,24 @@ CLIENT.on('message', async message => {
 
                     /* Search the TEAMS array for our team nickname */
                     var newteam;
-                    newteam = Array.from(Object.keys(TEAMS)).forEach(function (team_name) {
+                    Array.from(Object.keys(TEAMS)).forEach(function (team_name) {
                         if (TEAMS[team_name].includes(args)) { /* If the array of nicknames includes our nickname */
                             newteam = team_name; /* Team is the proper team */
-                            return newteam;
-                        };
+                        } else {
+                            return;
+                        }
                     });
 
-                    var role = Array.from(SERVER.roles.values()).forEach(function (role) {
-                        if (role.name === newteam){
-                            return role;
+                    var to_add;
+                    Array.from(SERVER.roles.values()).forEach(function (role) {
+                        if (role.name === newteam) {
+                            to_add = role;
+                        } else {
+                            return;
                         }
                     }); /* Search server roles for proper team ID */
-                    user.addRole(role);
+
+                    user.addRole(to_add);
                 }
             }
 
