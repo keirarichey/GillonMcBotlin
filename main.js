@@ -80,15 +80,75 @@ CLIENT.on('message', async message => {
             }
 
             if (command === "noteam") {
-                
+				var drop_array = [];
+				var drop_array_names = [];
+				/*
+				 * Time to find all existing teams roles to remove, and add them to a list of roles to remove.
+				 * We'll take the name, too, for admin purposes.
+				 */
+				Array.from(user_roles.values()).forEach(function(role) {
+				    if (Object.keys(TEAMS).includes(role)) {
+				        drop_array.push(role);
+				        drop_array_names.push(role.name);
+				    }
+				});
+				/* Remove roles using drop array, and log for admin purposes */
+				user.removeRoles(drop_array);
+				/* Insert logging here */
+
+				var to_add;
+                Array.from(SERVER.roles.values()).forEach(function (role) {
+                    if (role.name === "Confirmed") {
+                        to_add = role;
+                    } else {
+                        return;
+                    }
+                }); /* Search server roles for proper team ID */
+                user.addRole(to_add);
             }
 
             if (command === "group") {
+            	var newgroup;
+                Array.from(Object.keys(GROUPS)).forEach(function (group_name) {
+                    if (GROUPS[group_name].includes(args)) { /* If the array of nicknames includes our nickname */
+                        newgroup = group_name; /* Team is the proper team */
+                    } else {
+                        return;
+                    }
+                });
 
+                var to_add;
+                Array.from(SERVER.roles.values()).forEach(function (role) {
+                    if (role.name === newgroup) {
+                        to_add = role;
+                    } else {
+                        return;
+                    }
+                }); /* Search server roles for proper team ID */
+
+                user.addRole(to_add);
             }
 
             if (command === "ungroup") {
+            	var newgroup;
+                Array.from(Object.keys(GROUPS)).forEach(function (group_name) {
+                    if (GROUPS[group_name].includes(args)) { /* If the array of nicknames includes our nickname */
+                        newgroup = group_name; /* Team is the proper team */
+                    } else {
+                        return;
+                    }
+                });
 
+                var to_remove;
+                Array.from(SERVER.roles.values()).forEach(function (role) {
+                    if (role.name === newgroup) {
+                        to_remove = role;
+                    } else {
+                        return;
+                    }
+                }); /* Search server roles for proper team ID */
+
+                user.removeRoles(to_remove);
             }
         });
 
