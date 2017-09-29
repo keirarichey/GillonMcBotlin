@@ -30,7 +30,7 @@ CLIENT.on('message', async message => {
                 if (!Object.values(TEAMNAMES).includes(args)) {
                     /* If the request team is not a real team (not in teams array) */
                 	/* The user didn't input a real team, so we will inform them it failured */
-                    message.channel.send(`${user}: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! ${args} is not an accepted input!`);
+                    message.channel.send(`${user}: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! \`${args}\` is not an accepted input!`);
                 	return;
                 } else {
                     var drop_array = [];
@@ -52,6 +52,7 @@ CLIENT.on('message', async message => {
                     user.removeRoles(drop_array);
                     /* Insert logging here */
 
+<<<<<<< HEAD
                     /*
                      * Now we look up the role we need to add.
                      */
@@ -75,14 +76,41 @@ CLIENT.on('message', async message => {
             if (command === "noteam") {
                 
             }
+=======
+                    /* Search the TEAMS array for our team nickname */
+                    var newteam;
+                    Array.from(TEAMS).forEach(function (key, array) {
+                        if (array.includes(args)) { /* If the array of nicknames includes our nickname */
+                            newteam = key;/* Team is the proper team */l
+                        };
+                    });
+
+                    var role = Array.from(SERVER.roles.values()).forEach(function (role) { /* Search server roles for proper team ID */
+                        if (role.name === newteam){
+                            return role;
+                        }
+                    });
+                    user.addRole(role);
+                };
+
+            };
+>>>>>>> origin/ebf
 
             if (command === "group") {
 
-            }
+            };
 
             if (command === "ungroup") {
 
+<<<<<<< HEAD
             }
+=======
+            };
+
+            if (command === "noteam") {
+                
+            };
+>>>>>>> origin/ebf
         });
 
 CLIENT.login(CONFIG["token"]);
