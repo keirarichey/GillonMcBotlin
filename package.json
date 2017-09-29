@@ -1,0 +1,24 @@
+
+{
+  "name": "gillonmcbotlin",
+  "version": "1.0.0",
+  "description": "An all-rounder JS bot for the /r/AFL Discord Server.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZedFish/GillonMcBotlin.git"
+  },
+  "author": "ZedFish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZedFish/GillonMcBotlin/issues"
+  },
+  "homepage": "https://github.com/ZedFish/GillonMcBotlin#readme",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "yamljs": "^0.3.0"
+  }
+}
