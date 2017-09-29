@@ -10,3 +10,9 @@ You'll need a config.json file in the main directory, which should look like thi
     "owner": "159609273058459648"
 }
 ```
+
+To install, do
+```
+npm install
+```
+assuming you have Node.js installed
