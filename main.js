@@ -58,7 +58,7 @@ CLIENT.on('message', async message => {
 
                     /* Search the TEAMS array for our team nickname */
                     var newteam;
-                    newteam = Array.from(TEAMS).forEach(function (team_name) {
+                    newteam = Array.from(Object.keys(TEAMS)).forEach(function (team_name) {
                         if (TEAMS[team_name].includes(args)) { /* If the array of nicknames includes our nickname */
                             newteam = team_name; /* Team is the proper team */
                             return newteam;
