@@ -161,6 +161,10 @@ CLIENT.on('message', async message => {
     if (command === "dp") {
         message.channel.sendMessage("Here's the AFL team coloured Discord pictures if you don't want to use a picture of your pretty face, or another display picture.\n\nhttp://imgur.com/a/dAmYj");
     };
+
+    if (command === "gamelinks") {
+    	message.channel.sendMessage("These are the websites that we host the free games off of.\nhttp://pretendyoure.xyz/zy/\nhttp://www.pinturillo2.com/\nhttps://play.unofreak.com/\nhttp://jackbox.tv/\nhttp://treason.thebrown.net/\nhttps://play.wiblits.com/")
+    }
 });
 
 CLIENT.login(CONFIG["token"]);
