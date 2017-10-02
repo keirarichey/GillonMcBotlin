@@ -163,6 +163,4 @@ CLIENT.on('message', async message => {
     };
 });
 
-CLIENT.login(CONFIG["token"]);});
-
 CLIENT.login(CONFIG["token"]);
