@@ -5,6 +5,7 @@ const CONFIG = require("./config.json");
 const TEAMS = YAML.load('./data/teams.yml')
 const TEAMNAMES = YAML.load('./data/teamnames.yml')
 const prefix = CONFIG["prefix"];
+const MODULES = require("./modules.js")
 
 CLIENT.on('ready', () => {
     console.log(`--------------------------------------------------------`)
@@ -164,6 +165,10 @@ CLIENT.on('message', async message => {
 
     if (command === "gamelinks") {
     	message.channel.sendMessage("These are the websites that we host the free games off of.\nhttp://pretendyoure.xyz/zy/\nhttp://www.pinturillo2.com/\nhttps://play.unofreak.com/\nhttp://jackbox.tv/\nhttp://treason.thebrown.net/\nhttps://play.wiblits.com/")
+    }
+
+    if (command === "afl" || command === "AFL") {
+
     }
 });
 
