@@ -1,7 +1,7 @@
 
 // Check FS
 try {
-	const fs = require('fs');
+	var fs = require('fs');
 } catch (e) {
 	console.log("fs missing. Run `npm install` first.");
 	process.exit();
@@ -9,7 +9,7 @@ try {
 
 // Check Discord
 try {
-	const Discord = require("discord.js");
+	var Discord = require("discord.js");
 } catch (e) {
 	console.log("Discord.js missing. Run `npm install` first.");
 	process.exit();
@@ -25,7 +25,7 @@ try {
 
 // Load config file
 try {
-	const CONFIG = require("../config.json");
+	var CONFIG = require("../config.json");
 } catch (e) {
 	console.log("Unable to parse config file: " + e);
 	process.exit(1);
@@ -36,6 +36,9 @@ var bot = new Discord.Client({autoReconnect: true});
 bot.OWNERID = CONFIG["owner"];
 bot.PREFIX = CONFIG["prefix"];
 bot.TOKEN = CONFIG["token"];
+
+bot.DETAILED_LOGGING = true;
+bot.DELETE_COMMANDS = true;
 
 bot.COLOR = 0x345b95;
 bot.SUCCESS_COLOR = 0x33b23b;
@@ -218,12 +221,24 @@ var checkCommand = function(msg, isMention) {
 	}
 }
 
-CLIENT.on('ready', () => {
+bot.on("message", msg => {
+    if(msg.content.startsWith('<@'+bot.user.id+'>') || msg.content.startsWith('<@!'+bot.user.id+'>')) {
+		checkCommand(msg, true);
+		if(bot.DELETE_COMMANDS) msg.delete();
+    }else if (msg.content.startsWith(bot.PREFIX)) {
+		checkCommand(msg, false);
+		if(bot.DELETE_COMMANDS) msg.delete();
+    }
+});
+
+bot.on('ready', () => {
     console.log(`--------------------------------------------------------`)
-    console.log(`Logged in and successfully connected as ${CLIENT.user.username}.`)
-    console.log(`Invite link: https://discordapp.com/oauth2/authorize?CLIENT_id=${CLIENT.user.id}&scope=bot&permissions=268446784`)
+    console.log(`Logged in and successfully connected as ${bot.user.username}.`)
+    console.log(`Invite link: https://discordapp.com/oauth2/authorize?CLIENT_id=${bot.user.id}&scope=bot&permissions=268446784`)
     console.log(`--------------------------------------------------------`);
-    CLIENT.user.setGame("prefix: " + CONFIG.prefix);
+    bot.user.setGame("prefix: " + CONFIG.prefix);
+    bot.user.setStatus("online", "");
+    loadCommands();
 });
 
 bot.on('error', (err) => {
