@@ -16,7 +16,7 @@ CLIENT.on('ready', () => {
 });
 
 CLIENT.on('message', async message => {
-    const SERVER = CLIENT.guilds.find("name", "r/AFL");
+    const SERVER = message.guild;
 
     if (!message.content.startsWith(prefix) || message.author.bot) return; /* If the message isn't one of ours, skip */
 

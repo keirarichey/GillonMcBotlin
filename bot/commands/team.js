@@ -1,6 +1,77 @@
 module.exports = {
 	main: (bot, msg) => {
-		console.log(msg.content)
+		// Import yaml
+		try {
+			var yaml = require("yamljs");
+		} catch (e) {
+			console.log("yamljs missing. Run `npm install` first.");
+			process.exit();
+		}
+
+		// Import GilMcBotlin data
+		try {
+			var teams = yaml.load("../data/teams.yml")
+			var teamnames = yaml.load("../data/teamnames.yml")
+		} catch (e) {
+			console.log("Could not load teams.yml or teamnames.yml. Make sure they\'re in the gilmcbotlin/data/ directory and are valid yml.");
+			process.exit();
+		}
+
+		const SERVER = msg.guild;
+
+		var user = msg.member;
+		if (!Object.values(teamnames).includes(msg.content)) {
+		    /* If the request team is not a real team (not in teams array) */
+		    /* The user didn't input a real team, so we will inform them it failured */
+		    msg.channel.send(`<@${user.id}>: \<:bt:246541254182174720> THAT WAS OUT OF BOUNDS! \`${msg.content}\` is not an accepted input!`);
+		    return;
+		} else {
+			var drop_array = [];
+		    var drop_array_names = [];
+		    /*
+		     * Time to find all existing teams roles to remove, and add them to a list of roles to remove.
+		     * We'll take the name, too, for admin purposes.
+		     */
+		    Array.from(user.roles.values()).forEach(function(role) {
+		        if (Object.keys(teams).includes(role.name)) {
+		        	console.log(role.name);
+		            drop_array.push(role);
+		            drop_array_names.push(role.name);
+		        }
+		    });
+		    /* Change team, etc. */
+		    /* Remove roles using drop array, and log for admin purposes */
+		    drop_array.forEach(function(role) {
+		    	user.removeRole(role);
+		    	console.log(`Removed ${role.name} from ${user.displayName}.`)
+		    });
+
+		    /* Insert logging here */
+
+		    /*
+		     * Now we look up the role we need to add.
+		     */
+		    /* Search the teams array for our team nickname */
+		    var newteam;
+		    Array.from(Object.keys(teams)).forEach(function(team_name) {
+		    	if (teams[team_name].includes(msg.content)) { /* If the array of nicknames includes our nickname */
+		        	    newteam = team_name;
+		        } else {
+		            return;
+		        }
+		    });
+
+		    var to_add;
+		    Array.from(SERVER.roles.values()).forEach(function(role) {
+		        if (role.name == newteam || role.name == "🏆 "+newteam+" 🏆") {
+		            to_add = role;
+		        } else {
+		            return;
+		        }
+		    }); /* Search server roles for proper team ID */
+		    user.addRoles(to_add);
+		    msg.channel.send(`<@${user.id}> is now a fan of ${to_add.name}!`);
+		}
 	},
 	args: "<string>",
 	help: "sample help text",

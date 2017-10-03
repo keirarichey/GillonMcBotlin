@@ -25,7 +25,7 @@ try {
 
 // Load config file
 try {
-	var CONFIG = require("../config.json");
+	var config = require("../config.json");
 } catch (e) {
 	console.log("Unable to parse config file: " + e);
 	process.exit(1);
@@ -33,9 +33,9 @@ try {
 
 var bot = new Discord.Client({autoReconnect: true});
 
-bot.OWNERID = CONFIG["owner"];
-bot.PREFIX = CONFIG["prefix"];
-bot.TOKEN = CONFIG["token"];
+bot.OWNERID = config["owner"];
+bot.PREFIX = config["prefix"];
+bot.TOKEN = config["token"];
 
 bot.DETAILED_LOGGING = true;
 bot.DELETE_COMMANDS = true;
@@ -236,7 +236,7 @@ bot.on('ready', () => {
     console.log(`Logged in and successfully connected as ${bot.user.username}.`)
     console.log(`Invite link: https://discordapp.com/oauth2/authorize?CLIENT_id=${bot.user.id}&scope=bot&permissions=268446784`)
     console.log(`--------------------------------------------------------`);
-    bot.user.setGame("prefix: " + CONFIG.prefix);
+    bot.user.setGame("prefix: " + config.prefix);
     bot.user.setStatus("online", "");
     loadCommands();
 });
