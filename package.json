@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/ZedFish/GillonMcBotlin#readme",
   "dependencies": {
+    "bufferutil": "^3.0.2",
     "discord.js": "^11.2.1",
+    "erlpack": "github:discordapp/erlpack",
+    "libsodium-wrappers": "^0.5.4",
+    "uws": "^8.14.1",
     "yamljs": "^0.3.0"
   }
 }
