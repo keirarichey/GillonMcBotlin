@@ -23,6 +23,7 @@
     "dom-parser": "^0.1.5",
     "erlpack": "github:discordapp/erlpack",
     "libsodium-wrappers": "^0.5.4",
+    "moment": "^2.22.2",
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
     "uws": "^8.14.1",
