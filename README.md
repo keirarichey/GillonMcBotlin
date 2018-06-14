@@ -23,4 +23,4 @@ CREATE TABLE `tablename` (
   `origin_date` datetime DEFAULT NULL,
   `userID` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`reminderID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;```
+);```
