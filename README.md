@@ -7,12 +7,20 @@ You'll need a config.json file in the main directory, which should look like thi
     "client_id": "CLIENT",
     "token": "TOKEN",
     "prefix": "+",
-    "owner": "159609273058459648"
-}
-```
+    "owner": "OWNER'S ID",
+    "dbuser": "MYSQL USERNAME",
+    "dbpass": "MYSQL PASSWORD"
+}```
 
-To install, do
-```
-npm install
-```
-assuming you have Node.js installed
+As such, this also requires a MySQL database for the +remindme command, set up as follows:
+```SQL
+CREATE DATABASE dbname;
+CREATE TABLE `tablename` (
+  `reminderID` int(11) NOT NULL AUTO_INCREMENT,
+  `messageID` varchar(50) NOT NULL DEFAULT '',
+  `note` varchar(11000) DEFAULT NULL,
+  `new_date` datetime DEFAULT NULL,
+  `origin_date` datetime DEFAULT NULL,
+  `userID` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`reminderID`)
+);```
