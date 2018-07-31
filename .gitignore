@@ -1,5 +1,6 @@
-# Config File
+# Config Files
 config.json
+reddit_config.json
 
 # Logs
 logs
