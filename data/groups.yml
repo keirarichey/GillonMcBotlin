@@ -2,8 +2,6 @@
 # Optin groups for rAFL Discord.
 Nerds:
     - nerds
-Spectators:
-    - spectators
 Mercy Mains:
     - mercy mains
     - mercymains
@@ -16,6 +14,7 @@ Juan Deagers:
     - juan deags
     - juandeag
     - juandeager
+    - cs
     - cs:go
     - csgo
     - counter strike
@@ -50,3 +49,14 @@ Ballers:
     - golf
     - gwyf
     - golf with your friends
+Boggy Bs:
+    - worms
+    - worms revolution
+    - boggy bs
+    - boggy b
+    - boggy b's
+    - boggyb
+    - boggybs
+    - boggyb's
+    - boggy
+    - boggys
