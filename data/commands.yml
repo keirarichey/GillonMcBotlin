@@ -35,6 +35,7 @@ now:
 remindme:
     - remind
     - reminder
+removealias:
 score:
     - afl
     - aflscore
