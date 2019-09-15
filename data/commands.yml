@@ -47,10 +47,10 @@ topten:
     - bestplayers
     - tenbest
     - 10best
+unmute:
 ungroup:
     - removegroup
     - leavegroup
     - removegame
     - leavegame
     - ungame
-unmute:
