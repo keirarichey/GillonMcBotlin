@@ -1,0 +1,44 @@
+{
+    "Strikers": [
+        "strikers",
+        "adelaide",
+        "adelaide strikers"
+    ],
+    "Heat": [
+        "heat",
+        "brisbane",
+        "brisbane heat"
+    ],
+    "Hurricanes": [
+        "hurricanes",
+        "hobart",
+        "hobart hurricanes",
+        "hobart canes",
+        "canes"
+    ],
+    "Renegades": [
+        "renegades",
+        "melbourne renegades",
+        "melbourne gades",
+        "gades"
+    ],
+    "Stars": [
+        "stars",
+        "melbourne stars"
+    ],
+    "Scorchers": [
+        "scorchers",
+        "perth",
+        "perth scorchers"
+    ],
+    "Sixers": [
+        "sixers",
+        "6ers",
+        "sydney sixers",
+        "sydney 6ers"
+    ],
+    "Thunder": [
+        "thunder",
+        "sydney thunder"
+    ]
+}
