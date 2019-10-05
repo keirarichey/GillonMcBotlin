@@ -1,1 +1,80 @@
-{"addalias":["alias","newalias"],"addgroup":["newgroup","addgame","newgame"],"bbl":["cricket"],"delete":[null],"group":["game","gaming","games"],"help":["commands"],"mute":["zip","zipit","shutup","silence","oppress"],"nobbl":["unbbl","uncricket","nocricket","notcricket"],"noteam":["unteam","noafl","noaflteam"],"now":[null],"remindme":["remind","reminder"],"removealias":[null],"score":["afl","aflscore"],"team":["aflteam"],"topten":["top10","topplayers","bestplayers","tenbest","10best"],"ungroup":["removegroup","leavegroup","removegame","leavegame","ungame"],"unmute":[null]}
+{
+    "addalias": [
+        "alias",
+        "newalias"
+    ],
+    "addgroup": [
+        "newgroup",
+        "addgame",
+        "newgame"
+    ],
+    "bbl": [
+        "cricket"
+    ],
+    "delete": [
+        null
+    ],
+    "group": [
+        "game",
+        "gaming",
+        "games"
+    ],
+    "help": [
+        "commands"
+    ],
+    "mute": [
+        "zip",
+        "zipit",
+        "shutup",
+        "silence",
+        "oppress"
+    ],
+    "nobbl": [
+        "unbbl",
+        "uncricket",
+        "nocricket",
+        "notcricket"
+    ],
+    "noteam": [
+        "unteam",
+        "noafl",
+        "noaflteam"
+    ],
+    "now": [
+        null
+    ],
+    "remindme": [
+        "remind",
+        "reminder"
+    ],
+    "removegroup": [
+        "removegame"
+    ],
+    "removealias": [
+        null
+    ],
+    "score": [
+        "afl",
+        "aflscore"
+    ],
+    "team": [
+        "aflteam"
+    ],
+    "topten": [
+        "top10",
+        "topplayers",
+        "bestplayers",
+        "tenbest",
+        "10best"
+    ],
+    "ungroup": [
+        "removegroup",
+        "leavegroup",
+        "removegame",
+        "leavegame",
+        "ungame"
+    ],
+    "unmute": [
+        null
+    ]
+}
