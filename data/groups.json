@@ -6,7 +6,8 @@
         "mercy mains",
         "mercymains",
         "overwatch",
-        "over watch"
+        "over watch",
+        "ow"
     ],
     "Juan Deagers": [
         "juandeagers",
@@ -18,6 +19,7 @@
         "cs",
         "cs:go",
         "csgo",
+        "cs go",
         "counter strike",
         "counter strike global offensive",
         "global offensive"
@@ -94,6 +96,19 @@
         "paradox",
         "eu4",
         "euiv",
-        "ck2"
+        "ck2",
+        "stellaris"
+    ],
+    "Spartans": [
+        "spartans",
+        "spartan",
+        "halo"
+    ],
+    "Modern Warfare": [
+        "modern warfare",
+        "call of duty",
+        "cod mw",
+        "cod",
+        "mw"
     ]
 }
