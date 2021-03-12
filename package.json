@@ -30,7 +30,7 @@
     "request-promise": "^4.2.2",
     "snoowrap": "^1.15.2",
     "uws": "^8.14.1",
-    "xmldom": "^0.1.27",
+    "xmldom": "^0.5.0",
     "yamljs": "^0.3.0"
   }
 }
