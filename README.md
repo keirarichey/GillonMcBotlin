@@ -1,4 +1,6 @@
 # GillonMcBotlin
+# DEPRECATED: New version at: https://github.com/ZedFish/GilMcBotlin
+
 
 An all-rounder JS bot for the /r/AFL Discord Server.
 
